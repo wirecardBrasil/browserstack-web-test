@@ -9,6 +9,20 @@ end
 
 task :default => :single
 
+Cucumber::Rake::Task.new(:account_f) do |task|
+  ENV['CONFIG_NAME'] ||= "account_f"
+  task.cucumber_opts = ['--format=pretty', 'features/account_f.feature']
+end
+
+task :default => :account_f
+
+Cucumber::Rake::Task.new(:account_j) do |task|
+  ENV['CONFIG_NAME'] ||= "account_j"
+  task.cucumber_opts = ['--format=pretty', 'features/account_j.feature']
+end
+
+task :default => :account_j
+
 Cucumber::Rake::Task.new(:local) do |task|
   task.cucumber_opts = ['--format=pretty', 'features/local.feature', 'CONFIG_NAME=local']
 end
@@ -26,10 +40,11 @@ task :parallel do |t, args|
   end
 end
 
-
 task :test do |t, args|
   Rake::Task["single"].invoke
   Rake::Task["single"].reenable
+  Rake::Task["account"].invoke
+  Rake::Task["account"].reenable
   Rake::Task["local"].invoke
   Rake::Task["parallel"].invoke
 end

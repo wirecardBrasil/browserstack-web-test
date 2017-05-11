@@ -1,6 +1,6 @@
 server: "hub-cloud.browserstack.com"
-user: "BROWSERSTACK_USERNAME"
-key: "BROWSERSTACK_ACCESS_KEY"
+user: "fernandacezario1"
+key: "i2TZzsjDsjscaRpkVpKq"
 
 common_caps:
   "build": "capybara-browserstack"
