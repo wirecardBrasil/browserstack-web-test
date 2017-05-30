@@ -3,7 +3,7 @@ user: "fernandacezario1"
 key: "i2TZzsjDsjscaRpkVpKq"
 
 common_caps:
-  "build": "capybara-browserstack"
+  "build": "moip-onboarding"
   "browserstack.debug": true
 
 browser_caps:
