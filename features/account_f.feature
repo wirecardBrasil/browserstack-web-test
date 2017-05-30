@@ -15,7 +15,7 @@ Scenario: Create successful personal account
   Then I should see title "João Henrique, qual é o seu nome completo?"
   When fill field fullname with "João Henrique Souza Santos"
   When fill field e-mail
-  And select buttom validate
+  And select buttom fill field e-mail pessoa fisica
   And select buttom enter
   Then I should see title "Qual é o número do seu CPF?"
   When I fill field cpf
@@ -32,6 +32,7 @@ Scenario: Create successful personal account
   And select buttom enter
   Then I should see title "Qual é o nome completo da sua mãe?"
   When fill field mothers name with "Maria da Silva Sá"
+  And select buttom fill field mothers name pessoa fisica
   And select buttom enter
   Then I should see title "Qual é a atividade principal do seu negócio?"
   When select our main activity

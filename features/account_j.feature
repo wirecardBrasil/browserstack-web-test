@@ -10,13 +10,16 @@ Scenario: Create successful personal account
   And select option never sell
   And select option legal account
   And fill field e-mail legal account
-  And select buttom validate
+  And select buttom fill field e-mail
   And select buttom enter
   And fill field fancy name with "Soluções de Software JH"
+  And select buttom fill field
   And select buttom enter
   And fill field social name with "Soluções Integradas de Software LTDA"
+  And select buttom fill field
   And select buttom enter
   And fill field cnpj
+  And select buttom fill field
   And select buttom enter
   And select our main activity
   And select buttom enter
@@ -31,6 +34,7 @@ Scenario: Create successful personal account
   And fill field opening date with "01/05/2016"
   And select buttom enter
   And fill field name of legal representative of your company with "João Henrique Albuquerque"
+  And select buttom fill field
   And select buttom enter
   And fill field cpf of legal representative
   And fill field birthday of legal representative with "10/10/1990"
@@ -39,6 +43,7 @@ Scenario: Create successful personal account
   And fill field residence number of legal representative with "1000"
   And select buttom enter
   And fill field mothers name of legal representative "Maria da Silva Sá"
+  And select buttom fill field
   And select buttom enter
   And fill field cellphone of legal representative "11 912345678"
   And select buttom enter
@@ -54,27 +59,33 @@ Scenario: Fill cnpj invalid
   And select option never sell
   And select option legal account
   And fill field e-mail legal account
-  And select buttom validate
+  And select buttom fill field e-mail
   And select buttom enter
   And fill field fancy name with "Soluções de Software JH"
+  And select buttom fill field
   And select buttom enter
   And fill field social name with "Soluções Integradas de Software LTDA"
+  And select buttom fill field
   And select buttom enter
   And fill field cnpj invalid
+  And select buttom fill field
   Then I should see title "Ei João Henrique, esse não é um CNPJ válido."
 
 Scenario: Fill cnpj already registered
 
-When I fill field nickname with "João Henrique"
-And select buttom start
-And select option never sell
-And select option legal account
-And fill field e-mail legal account
-And select buttom validate
-And select buttom enter
-And fill field fancy name with "Soluções de Software JH"
-And select buttom enter
-And fill field social name with "Soluções Integradas de Software LTDA"
-And select buttom enter
-And fill field cnpj already registered
-Then I should see title "João Henrique, esse CNPJ já está cadastrado no Moip."
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option legal account
+  And fill field e-mail legal account
+  And select buttom fill field e-mail
+  And select buttom enter
+  And fill field fancy name with "Soluções de Software JH"
+  And select buttom fill field
+  And select buttom enter
+  And fill field social name with "Soluções Integradas de Software LTDA"
+  And select buttom fill field
+  And select buttom enter
+  And fill field cnpj already registered
+  And select buttom fill field
+  Then I should see title "João Henrique, esse CNPJ já está cadastrado no Moip."

@@ -8,41 +8,56 @@ end
 
 When(/^I fill field nickname with "([^"]*)"$/) do |nickname|
   find(:xpath, "//*[@id=\"signin-view\"]/section/div/div[1]/p[3]/input").set(nickname)
-  sleep 5
+  sleep 2
 end
 
 When(/^select buttom start$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/div/div[1]/button").click
-  sleep 5
+  sleep 2
 end
 
 When(/^select option never sell$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[2]/ul/li[1]/span[2]").click
-  sleep 5
+  sleep 2
 end
 
 When(/^select option legal account$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[2]/ul/li[2]/span[2]").click
-  sleep 5
+  sleep 2
 end
 
 When(/^fill field e\-mail legal account$/) do
-  @value = "jh_#{rand(1000)}@mailinator.com"
+  @value = "jh_#{rand(10000)}@mailinator.com"
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set(@value)
 end
 
-When(/^select buttom validate$/) do
-  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/div[2]/button").click
-  sleep 5
+When(/^select buttom fill field e-mail$/) do
+  sleep 2
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[5]/button").click
 end
 
 When(/^select buttom enter$/) do
-  sleep 3
+  sleep 2
   find(:xpath, "//*[@id=\"signin-view\"]/section/div/div/span").click
 end
 
 When(/^fill field fancy name with "([^"]*)"$/) do |fancyname|
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set(fancyname)
+end
+
+When(/^select buttom fill field$/) do
+  sleep 2
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[4]/button").click
+end
+
+When(/^select buttom fill field e-mail pessoa fisica$/) do
+  sleep 2
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[7]").click
+end
+
+When(/^select buttom fill field mothers name pessoa fisica$/) do
+  sleep 2
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[5]/button").click
 end
 
 When(/^fill field social name with "([^"]*)"$/) do |socialname|
@@ -52,7 +67,7 @@ end
 When(/^fill field cnpj$/) do
   @cnpj = CNPJ.generate
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set(@cnpj)
-  sleep 5
+  sleep 2
 end
 
 When(/^select our main activity$/) do
@@ -138,11 +153,6 @@ When(/^select buttom complete registration$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/div[2]/button").click
 end
 
-Then(/^I should see title "([^"]*)"$/) do |arg1|
-  page.has_content?(arg1)
-  page.has_content?(arg1)
-end
-
 When(/^fill field cnpj invalid$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set('58316000000000')
 end
@@ -167,7 +177,7 @@ end
 When(/^I fill field cpf$/) do
   @cpf = CPF.generate
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set(@cpf)
-  sleep 5
+  sleep 2
 end
 
 When(/^fill field birthday with "([^"]*)"$/) do |birthday|
