@@ -50,6 +50,11 @@ When(/^select buttom fill field$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[4]/button").click
 end
 
+When(/^select buttom fill field phones$/) do
+  sleep 2
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[6]/button").click
+end
+
 When(/^select buttom fill field e-mail pessoa fisica$/) do
   sleep 2
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[7]").click
@@ -88,8 +93,16 @@ When(/^fill field residence number with "([^"]*)"$/) do |number|
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section/div[2]/div[1]/section/input").set(number)
 end
 
+When(/^fill field residence number invalid cep with "([^"]*)"$/) do |number|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[1]/section[2]/input").set(number)
+end
+
 When(/^fill field cellphone with "([^"]*)"$/) do |cellphone|
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[5]/input").set(cellphone)
+end
+
+When(/^fill field residencial phone with "([^"]*)"$/) do |residencial_phone|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[5]/input").set(residencial_phone)
 end
 
 When(/^select our form of incorporation of your company$/) do
@@ -174,6 +187,10 @@ When(/^fill field e\-mail$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[6]/input").set(@value)
 end
 
+When(/^fill field e-mail with plus "([^"]*)"$/) do |email|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[6]/input").set(email)
+end
+
 When(/^I fill field cpf$/) do
   @cpf = CPF.generate
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[3]/input").set(@cpf)
@@ -202,4 +219,20 @@ end
 
 When(/^select option as my main activity$/) do
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[2]/ul/li[3]/span[2]").click
+end
+
+When(/^fill field street with "([^"]*)"$/) do |street|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[1]/section[1]/input").set(street)
+end
+
+When(/^fill field neighborhood with "([^"]*)"$/) do |neighborhood|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[2]/section[2]/input").set(neighborhood)
+end
+
+When(/^fill field city with "([^"]*)"$/) do |city|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[3]/section[1]/input").set(city)
+end
+
+When(/^fill field uf with "([^"]*)"$/) do |uf|
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[3]/section[2]/input").set(uf)
 end
