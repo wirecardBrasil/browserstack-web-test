@@ -183,8 +183,9 @@ When(/^fill field fullname with "([^"]*)"$/) do |name|
 end
 
 When(/^fill field e\-mail$/) do
-  @value = "jh_#{rand(1000)}@mailinator.com"
-  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[6]/input").set(@value)
+  @value_email = "jh_#{rand(1000)}@mailinator.com"
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[6]/input").set(@value_email)
+  p "#{@value_email}"
 end
 
 When(/^fill field e-mail with plus "([^"]*)"$/) do |email|
@@ -235,4 +236,37 @@ end
 
 When(/^fill field uf with "([^"]*)"$/) do |uf|
   find(:xpath, "//*[@id=\"signin-view\"]/section/section[2]/div/div[2]/section[1]/div[2]/div[3]/section[2]/input").set(uf)
+end
+
+When(/^select buttom come back$/) do
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[1]/header/div[2]/div[2]/button[1]/span[2]").click
+end
+
+When(/^select buttom pass$/) do
+  find(:xpath, "//*[@id=\"signin-view\"]/section/section[1]/header/div[2]/div[2]/button[2]/span[2]").click
+end
+
+When(/^select buttom moip account$/) do
+  find(:xpath, "//*[@id=\"signin-view\"]/section/div/p/a").click
+end
+
+When(/^fill user$/) do
+  find(:xpath, "//*[@id=\"login\"]/main/article/section/div/form/fieldset[1]/input").set(@value_email)
+end
+
+When(/^fill password with "([^"]*)"$/) do |password|
+  find(:xpath, "//*[@id=\"login\"]/main/article/section/div/form/fieldset[2]/input").set(password)
+end
+
+When(/^select buttom to access account$/) do
+  find(:xpath, "//*[@id=\"login\"]/main/article/section/div/form/button").click
+  sleep 3
+end
+
+When(/^select my account$/) do
+  find(:xpath, "/html/body/header/div/div/div[2]/div").click
+end
+
+When(/^select logout$/) do
+  find(:xpath, "/html/body/header/div/div/div[2]/div/ul/li[6]/a").click
 end
