@@ -106,6 +106,20 @@ Scenario: Fill e-mail with plus
   And select buttom fill field e-mail pessoa fisica
   Then I should see title "Opa João Henrique! Esse não é um e-mail válido."
 
+Scenario: Fill birthday under 1900
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option personal account
+  And fill field fullname with "João Henrique Souza Santos"
+  And fill field e-mail
+  And select buttom fill field e-mail pessoa fisica
+  And select buttom enter
+  And I fill field cpf
+  And select buttom enter
+  And fill field birthday with "10/10/1899"
+  Then I should see title "Ei João Henrique, você precisa ter nascido no século passado para utilizar o Moip"
+
   Scenario: Fill field cellphone valid and field residencial invalid
 
   When I fill field nickname with "João Henrique"
@@ -186,3 +200,200 @@ Scenario: Cep invalid
   And select accept terms
   And select buttom complete registration
   Then I should see title "cadastro realizado"
+
+Scenario: Select buttom come back
+
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option personal account
+  And fill field fullname with "João Henrique Souza Santos"
+  And fill field e-mail
+  And select buttom fill field e-mail pessoa fisica
+  And select buttom enter
+  And I fill field cpf
+  And select buttom enter
+  And fill field birthday with "10/10/1990"
+  And select buttom enter
+  And fill field cep with "04714000"
+  And fill field residence number with "100"
+  And select buttom enter
+  And fill field cellphone with "11 987651234"
+  And select buttom enter
+  And fill field mothers name with "Maria da Silva"
+  And select buttom fill field mothers name pessoa fisica
+  And select buttom enter
+  And select our main activity
+  And select buttom enter
+  And fill field website with "https://www.solucoessoftwarejh.com.br"
+  And select buttom enter
+  And select our billing expectation
+  And select buttom enter
+  And fill field password "moip@123"
+  And select accept terms
+  And select buttom come back
+  Then I should see title "Até R$5 mil"
+  And select buttom come back
+  Then I should see title "https://www.solucoessoftwarejh.com.br"
+  And select buttom come back
+  Then I should see title "Roupas / Acessórios"
+  And select buttom come back
+  Then I should see title "Maria da Silva"
+  And select buttom come back
+  Then I should see title "11 987651234"
+  And select buttom come back
+  Then I should see title "São Paulo"
+  Then I should see title "Chácara Santo Antônio (Zona Sul)"
+  Then I should see title "10"
+  Then I should see title "Rua Antônio das Chagas"
+  Then I should see title "04714-000"
+  And select buttom come back
+  Then I should see title "10/10/1990"
+  And select buttom come back
+  And select buttom come back
+  And select buttom come back
+  Then I should see title "João Henrique Souza Santos"
+
+Scenario: Come back, pass and conclude
+
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option personal account
+  And fill field fullname with "João Henrique Souza Santos"
+  And fill field e-mail
+  And select buttom fill field e-mail pessoa fisica
+  And select buttom enter
+  And I fill field cpf
+  And select buttom enter
+  And fill field birthday with "10/10/1990"
+  And select buttom enter
+  And fill field cep with "04714000"
+  And fill field residence number with "100"
+  And select buttom enter
+  And fill field cellphone with "11 987651234"
+  And select buttom enter
+  And fill field mothers name with "Maria da Silva"
+  And select buttom fill field mothers name pessoa fisica
+  And select buttom enter
+  And select our main activity
+  And select buttom enter
+  And fill field website with "https://www.solucoessoftwarejh.com.br"
+  And select buttom enter
+  And select our billing expectation
+  And select buttom enter
+  And fill field password "moip@123"
+  And select accept terms
+  And select buttom come back
+  Then I should see title "Até R$5 mil"
+  When select buttom come back
+  Then I should see title "https://www.solucoessoftwarejh.com.br"
+  When select buttom come back
+  Then I should see title "Roupas / Acessórios"
+  When select buttom come back
+  Then I should see title "Maria da Silva"
+  When select buttom come back
+  Then I should see title "11 987651234"
+  When select buttom come back
+  Then I should see title "São Paulo"
+  Then I should see title "Chácara Santo Antônio (Zona Sul)"
+  Then I should see title "10"
+  Then I should see title "Rua Antônio das Chagas"
+  Then I should see title "04714-000"
+  When select buttom come back
+  Then I should see title "10/10/1990"
+  When select buttom come back
+  And select buttom come back
+  And select buttom come back
+  Then I should see title "João Henrique Souza Santos"
+  When select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And select buttom pass
+  And fill field password "moip@123"
+  And select buttom complete registration
+  Then I should see title "cadastro realizado"
+
+Scenario: Login account
+
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option personal account
+  And fill field fullname with "João Henrique Souza Santos"
+  And fill field e-mail
+  And select buttom fill field e-mail pessoa fisica
+  And select buttom enter
+  And I fill field cpf
+  And select buttom enter
+  And fill field birthday with "10/10/1990"
+  And select buttom enter
+  And fill field cep with "04714000"
+  And fill field residence number with "100"
+  And select buttom enter
+  And fill field cellphone with "11 987651234"
+  And select buttom enter
+  And fill field mothers name with "Maria da Silva"
+  And select buttom fill field mothers name pessoa fisica
+  And select buttom enter
+  And select our main activity
+  And select buttom enter
+  And fill field website with "https://www.solucoessoftwarejh.com.br"
+  And select buttom enter
+  And select our billing expectation
+  And select buttom enter
+  And fill field password "moip@123"
+  And select accept terms
+  And select buttom complete registration
+  Then I should see title "cadastro realizado"
+  When select buttom moip account
+  And fill user
+  And fill password with "moip@123"
+  And select buttom to access account
+  Then I should see title "Olá João Henrique, veja o resumo da sua conta."
+
+Scenario: Logout account
+
+  When I fill field nickname with "João Henrique"
+  And select buttom start
+  And select option never sell
+  And select option personal account
+  And fill field fullname with "João Henrique Souza Santos"
+  And fill field e-mail
+  And select buttom fill field e-mail pessoa fisica
+  And select buttom enter
+  And I fill field cpf
+  And select buttom enter
+  And fill field birthday with "10/10/1990"
+  And select buttom enter
+  And fill field cep with "04714000"
+  And fill field residence number with "100"
+  And select buttom enter
+  And fill field cellphone with "11 987651234"
+  And select buttom enter
+  And fill field mothers name with "Maria da Silva"
+  And select buttom fill field mothers name pessoa fisica
+  And select buttom enter
+  And select our main activity
+  And select buttom enter
+  And fill field website with "https://www.solucoessoftwarejh.com.br"
+  And select buttom enter
+  And select our billing expectation
+  And select buttom enter
+  And fill field password "moip@123"
+  And select accept terms
+  And select buttom complete registration
+  Then I should see title "cadastro realizado"
+  When select buttom moip account
+  And fill user
+  And fill password with "moip@123"
+  And select buttom to access account
+  And select my account
+  And select logout
+  Then I should see title "Faça o login para acessar sua conta"
